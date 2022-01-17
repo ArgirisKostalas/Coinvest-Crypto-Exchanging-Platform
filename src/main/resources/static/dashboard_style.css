@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background: #2C3E50;
+  font-family: "Source Sans Pro", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+header {
+  position: absolute;
+  right: 0;
+  height: 0;
+}
+
+.account {
+  margin: 20px 150px;
+}
+.account img {
+  float: right;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+.account p {
+  float: right;
+  color: #FFF;
+  margin: 7px -160px;
+  font-size: 15px;
+}
+
+.account-box:before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #1f2c39;
+  margin: -7px 34px;
+  float: right;
+}
+
+.account-box {
+  background: #1f2c39;
+  border-radius: 3px;
+  width: 80%;
+  height: 300px;
+  border: none;
+  margin: 50px 60px;
+  position: absolute;
+}
+.account-box h3 {
+  text-align: center;
+  color: #FFF;
+  padding: 20px;
+  font-weight: 300;
+  border-bottom: 1px solid #233140;
+}
+.account-box li {
+  list-style: none;
+  padding: 15px;
+  width: 38.8%;
+  float: left;
+  transition: all ease 0.4s;
+}
+.account-box li:hover {
+  background: #233140;
+}
+.account-box a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+aside {
+  background: #233140;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+}
+aside h1 {
+  font-family: "Pacifico", cursive;
+  color: #FFF;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 40px;
+  font-size: 2.5rem;
+}
+aside ul {
+  margin: 40px 0;
+}
+aside li {
+  list-style: none;
+  padding: 9px;
+  margin-top: 10px;
+  transition: all ease 0.4s;
+}
+aside li.active {
+  background: #1a252f;
+}
+aside li a:hover {
+  background: #1a252f;
+  text-decoration: none;
+  color: #FFF;
+}
+aside a {
+  color: #FFF;
+  text-decoration: none;
+  font-size: 12.5px;
+  padding-left: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 12.5px;
+  font-size: 0.78125rem;
+}
+
+
+
+
+.notification {
+  background: #2980B9;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 100%;
+  color: #FFF;
+  font-weight: 400;
+  float: right;
+  margin-top: -2px;
+  margin-right: 10px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.dashboard {
+  background: #2C3E50;
+  width: 80%;
+  height: 100vh;
+  float: right;
+}
+
+canvas {
+  margin: -50px -5px;
+  width: 101% !important;
+}
+
+.row {
+  width: 100%;
+  margin-top: 41px;
+}
+.row p {
+  float: left;
+  margin: -110px 150px;
+  color: #FFF;
+  font-weight: 400;
+  width: 60%;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+
+.profits {
+  background: #283949;
+  width: 50%;
+  height: auto;
+  float: left;
+}
+
+.expenses {
+  background: #233140;
+  width: 50%;
+  height: auto;
+  float: right;
+}
+
+.info {
+  padding: 25px;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+  border: 10px solid #273646;
+  color: #FFF;
+}
+
+.c-profits {
+  background: transparent;
+  border-top-color: #2980B9;
+  border-right-color: #2980B9;
+  border-bottom-color: #2980B9;
+}
+
+.c-expenses {
+  background: transparent;
+  border-top-color: #9B59B6;
+  border-right-color: #9B59B6;
+}
+
+.fa {
+  color: #FFF;
+  padding-right: 10px;
+  font-size: 12.5px !important;
+  font-size: 0.78125rem;
+}
+
+.fa.fa-caret-down {
+  margin: 0 10px;
+}
+
+.fa.fa-bars {
+  float: right;
+  margin: 30px 20px;
+  visibility: hidden;
+  font-size: 20px !important;
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 1100px) {
+  aside {
+    visibility: hidden;
+  }
+
+  .profits, .expenses {
+    width: 100%;
+  }
+
+  .dashboard {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .account {
+    visibility: hidden;
+  }
+
+  .menu {
+    width: 100vw;
+    height: 100vh;
+    background: #2C3E50;
+    margin: 0 0;
+    padding-bottom: 60px;
+  }
+  .menu ul {
+    margin: -50px 30px;
+    text-align: left;
+  }
+  .menu li {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0 0;
+  }
+  .menu a {
+    text-decoration: none;
+    color: #FFF;
+  }
+  .menu p {
+    background: #253443;
+    padding: 20px;
+    color: #FFF;
+    text-align: center;
+    margin: 90px 0;
+    font-weight: 700;
+  }
+
+  .fa.fa-bars {
+    visibility: visible;
+  }
+}
