@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" th:href="@{/bootstrap.min.css}">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" th:href="@{/font-awesome.min.css}">
+    <link rel="stylesheet" href="assets/css/Footer-Dark.css" th:href="@{/errorform.css}">
+    <link rel="stylesheet" href="assets/css/Newsletter-Subscription-Form.css" th:href="@{/errorpage.css}">
+    <link rel="stylesheet" href="assets/css/styles.css" th:href="@{/footererror.css}">
+</head>
+
+<body th:style="'background-color:#7d8285;background-image:url('+@{cool-background1.jpg}+');'">
+    <div class="newsletter-subscribe"><i onclick="location.href='/'" class="fa fa-arrow-left" style="cursor: pointer;font-size:50px;color:#246cb3;"></i>
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Oh - oh... Seems like there is an error.</h2>
+                <p class="text-center">The page you are looking for might be broken or under development. We apologise for this inconvenience and promise that we will resolve this matter as soon as we can. Feel free to leave us your email adress and we will keep you updated
+                    with our new features right out of the oven!</p>
+            </div>
+            <form class="form-inline" method="post">
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Your Email"></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit">Keep me updated!</button></div>
+            </form>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js" th:src="@{/jquery.min.js}"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js" th:src="@{/bootstrap.min.js}"></script>
+</body>
+
+</html>

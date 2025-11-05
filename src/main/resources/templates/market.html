@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Market Portal</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" th:href="@{https://fonts.googleapis.com/css?family=Montserrat:400,700}"rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <!--<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />-->
+
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" th:href="@{/bootstrap.css}"/>
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" th:href="@{/market-style.css}"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js" th:src="@{https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js}"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" th:src="@{https://oss.maxcdn.com/respond/1.4.2/respond.min.js}"></script>
+
+    <![endif]-->
+
+</head>
+
+<body>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-5">
+                    <div class="booking-cta">
+                        <h1>Welcome to the Transaction Portal</h1>
+                        <p>In this portal you can buy, sell or exchange your assets with our central service. After you fill your data, the transaction fee will be
+                            calculated and shown to you before you complete your transaction.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-md-pull-7">
+                    <div class="booking-form">
+                        <form  th:action="@{/market}" th:object="${transaction}" method="POST">
+                            <div class="form-check form-check-inline" th:if="${hide}==false">
+                                <input th:field="*{txAction}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required  th:value="BUY">
+                                <label class="form-check-label" for="inlineRadio1" >Buy</label>
+                            </div>
+                            <div class="form-check form-check-inline" th:if="${hide}==false">
+                                <input th:field="*{txAction}" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"  th:value="SELL">
+                                <label class="form-check-label" for="inlineRadio2" >Sell</label>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group" th:if="${hide}==false">
+                                        <span class="form-label" >Choose Currency</span>
+                                        <select th:field="*{txCoin}" class="form-control" th:if="${hide}==false">
+                                            <option th:value="BTC">BTC</option>
+                                            <option th:value="ETH">ETH</option>
+                                            <option th:value="ADA">ADA</option>
+                                            <option th:value="XMR">XMR</option>
+                                        </select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group" th:if="${hide}==false">
+                                            <span class="form-label">Transaction Amount</span>
+                                            <input th:field="*{txNumber}" class="form-control" type="number" required min="0" value="0" step=".001" >
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                                <div class="form-btn" th:if="${hide}==false" >
+                                    <button  class="btn btn-success">Transact</button>
+                                    <a th:href="@{/dashboard}"><button type="button" class="btn btn-danger" >Cancel</button></a>
+                                </div>
+
+
+
+
+                        </form>
+                        <div th:if="${valid}==true"><br>
+                            <h3 class="fa-header"> Transaction Details</h3><br>
+                            <a class="text-success">Your Transaction was completed successfully</a><br>
+                            <a class="text-info" th:text="${'You transaction fee is: '+fee+' €'}"></a><br><br>
+                            <a th:href="@{/dashboard}"><button  class="btn btn-dark" >Check your updated wallet</button></a><br><br>
+
+
+                           <!-- <div class="container">
+                                <div class="col-md-11 px-0">
+                                    <img th:src="@{/carlos_success.jpg}" class="img-fluid">
+                                </div>
+                            </div> -->
+
+
+
+                        </div>
+                        <div th:if="${valid}==false"><br>
+                            <h3 class="fa-header"> Transaction Details</h3><br>
+                            <a class="alert-danger">Your Transaction has failed</a><br><br>
+                            <a th:href="@{/dashboard}"><button  class="btn btn-dark" >Go back to your wallet</button></a><br><br>
+
+                            <!--<div class="container">
+                                <div class="col-md-11 px-0">
+                                    <img th:src="@{/whereLambo1.png}" class="img-fluid">
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" th:src="@{/jquery.min.js}"></script>
+
+</html>

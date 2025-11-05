@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Client Management</title>
+    <link th:href="@{bootstrap.css}" rel="stylesheet">
+    <link th:href="@{bootstrap.min.css}" rel="stylesheet">
+    <script type="text/javascript" th:src="@{angular.min.js}"></script>
+    <script type="text/javascript" th:src="@{app.module.js}"></script>
+    <script type="text/javascript" th:src="@{client.controller.js}"></script>
+</head>
+<body  ng-app="app" ng-controller="adminController as vm">
+<header>
+  <nav class="navbar navbar-dark">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="text-dark" th:href="@{/dashboard}">Manage Transactions</a><br>
+        <a th:href="@{/logout}"><i class="fa fa-sign-out"></i> Log out</a>
+
+      </div>
+    </div>
+  </nav>
+</header>
+<div>
+  <div class="row">
+    <div class="col-lg-offset-1 col-lg-12">
+      <div class="btn-group" role="group">
+        <button ng-click="vm.getClients()" type="button" class="btn btn-dark">All</button>
+        <button ng-click="vm.getOnlyClient()" type="button" class="btn btn-dark">Show Clients Only</button>
+      </div>
+
+      <table class="table table-hover table-dark">
+        <thead>
+        <tr>
+          <th>Client ID</th>
+          <th>Client First Name</th>
+          <th>Client Last Name</th>
+          <th>Client User Name</th>
+          <th style="width: 90px"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="transaction in vm.transactions">
+          <td>{{transaction.clientID}}</td>
+          <td>{{transaction.clientFirstName}}</td>
+          <td>{{transaction.clientLastName}}</td>
+          <td>{{transaction.clientUsername}}</td>
+          <td>
+            <button class="btn btn-danger" ng-click="vm.deleteClient(transaction.clientID)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<footer class="footer" style="position: absolute; bottom:0;background-color: #f5f5f5; width: 100%">
+  <div class="container">
+
+  </div>
+</footer>
+</body>
+</html>
